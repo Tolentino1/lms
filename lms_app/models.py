@@ -57,13 +57,7 @@ class DisciplinaOfertada(models.Model):
         semestre_igual = DisciplinaOfertada.objects.filter(semestre=self.semestre)
         disciplina_igual = DisciplinaOfertada.objects.filter(disciplina=self.disciplina)
         if (len(curso_igual) > 0) and (len(ano_igual) > 0) and (len(turma_igual) > 0) and (len(semestre_igual) > 0) and (len(disciplina_igual) > 0):
-            raise Exception ("Disciplinas Repetidas")
-        p_id = Professor.objects.get(id=None)
-        d.id = Disciplina.objects.get(id=None)
-
-        if (self.professor == p_id) or (self.disciplina == d_id):
-            raise Exception ("Disciplinas Repetidas")
-            
+            raise Exception ("Disciplinas Repetidas")          
         
         super(DisciplinaOfertada,self).save()
         
